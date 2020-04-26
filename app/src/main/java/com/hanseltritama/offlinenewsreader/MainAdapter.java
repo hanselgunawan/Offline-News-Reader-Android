@@ -13,10 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
-    private ArrayList<String> newsList;
+    private ArrayList<String> titles;
+    private ArrayList<String> content;
 
-    public MainAdapter(ArrayList<String> newsList) {
-        this.newsList = newsList;
+    public MainAdapter(ArrayList<String> titles, ArrayList<String> content) {
+        this.titles = titles;
+        this.content = content;
     }
 
     @NonNull
@@ -28,12 +30,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MainAdapter.ViewHolder holder, int position) {
-        holder.textView.setText(newsList.get(position));
+        holder.textView.setText(titles.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return titles.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
