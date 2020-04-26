@@ -128,13 +128,13 @@ public class MainActivity extends AppCompatActivity {
 
                 JSONArray jsonArray = new JSONArray(result);
 
-                int number_of_items = 20;
+                int numOfItems = 20;
 
-                if (jsonArray.length() < 20) number_of_items = jsonArray.length();
+                if (jsonArray.length() < 20) numOfItems = jsonArray.length();
 
                 articlesDB.execSQL("DELETE FROM articles");
 
-                for (int i = 0; i < number_of_items; i++) {
+                for (int i = 0; i < numOfItems; i++) {
 
                     String articleId = jsonArray.getString(i);
 
