@@ -8,21 +8,15 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class WebviewActivity extends AppCompatActivity {
-
-    ArrayList<String> content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
 
-        Intent intent = new Intent();
-        content = Objects.requireNonNull(intent.getExtras()).getStringArrayList("NEWS_ARRAY");
-
-        int array_pos = intent.getExtras().getInt("ARRAY_POSITION");
+        Intent intent = getIntent();
 
         WebView webView = findViewById(R.id.my_webview);
 
@@ -30,7 +24,7 @@ public class WebviewActivity extends AppCompatActivity {
 
         webView.setWebViewClient(new WebViewClient());
 
-        webView.loadData(content.get(array_pos), "text/html", "UTF-8");
+        webView.loadData(intent. getStringExtra("NEWS_CONTENT"), "text/html", "UTF-8");
 
     }
 }

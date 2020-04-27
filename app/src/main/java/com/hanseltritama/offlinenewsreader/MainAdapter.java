@@ -54,9 +54,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                 @Override
                 public void onClick(View view) {
                     int pos = getAdapterPosition();
-                    Intent intent = new Intent(view.getContext(), WebviewActivity.class);
-                    intent.putExtra("NEWS_ARRAY", content);
-                    intent.putExtra("ARRAY_POSITION", pos);
+                    Intent intent = new Intent(view.getContext().getApplicationContext(), WebviewActivity.class);
+                    intent.putExtra("NEWS_CONTENT", content.get(pos));
                     view.getContext().startActivity(intent);
                 }
             });
