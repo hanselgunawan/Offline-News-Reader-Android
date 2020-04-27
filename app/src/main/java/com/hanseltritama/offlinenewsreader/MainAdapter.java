@@ -1,6 +1,8 @@
 package com.hanseltritama.offlinenewsreader;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +49,17 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             super(itemView);
 
             textView = itemView.findViewById(R.id.my_textview);
+
+            textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int pos = getAdapterPosition();
+                    Intent intent = new Intent(view.getContext(), WebviewActivity.class);
+                    intent.putExtra("NEWS_ARRAY", content);
+                    intent.putExtra("ARRAY_POSITION", pos);
+                    view.getContext().startActivity(intent);
+                }
+            });
 
         }
     }

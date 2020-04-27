@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
             } while (c.moveToNext());
 
             mAdapter.notifyDataSetChanged();
-            recyclerView.setAdapter(mAdapter);
 
         }
 
@@ -124,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-                Log.i("URL Content", result);
+//                Log.i("URL Content", result);
 
                 JSONArray jsonArray = new JSONArray(result);
 
@@ -164,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
                     JSONObject jsonObject = new JSONObject(articleInfo);
 
-                    Log.i("JSON Object", jsonObject.toString());
+//                    Log.i("JSON Object", jsonObject.toString());
 
                     // What if the title OR url does not exist?
                     if (!jsonObject.isNull("title") && !jsonObject.isNull("url")) {
@@ -189,6 +188,8 @@ public class MainActivity extends AppCompatActivity {
                             char current = (char) data;
 
                             articleContent += current;
+
+//                            Log.i("HANSEL: ", articleContent);
 
                             data = reader.read();  // go to the next character
 
